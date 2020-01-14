@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  background-color: rgb(40, 118, 170);
+  
+}
+
+.containerForm {
+  width
+  : 100%;
+}
+.search-button {
+  height: 36px;
+  color: white;
+  background-color: rgb(34, 124, 177);
+  
+  margin-left: 20px;
+  border-radius: 50%;
+}
+.container-card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.recipe-stuff {
+}

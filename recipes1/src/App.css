@@ -24,4 +24,6 @@
   flex-direction: column;
 }
 .recipe-stuff {
+  display: flex;
+  flex-direction: column;
 }

@@ -1,14 +1,15 @@
 import React, { useEffect, useState, Fragment } from 'react';
 import Recipe from "./componentes/recipe";
-
+import RecipePreview from './componentes/recipePreview';
 import './App.css';
 
 const App = () => {
   const APP_ID = "f464e962";
   const APP_KEY = "0e0832c3def882ff9cef9561fc8268ab";
   const [recipes, setRecipes] = useState([]);
-  const [search, setSearch] = useState ("");
-  const [query, setQuery] = useState ('');
+  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState('rice');
+  const [selectedRecipe, setSelectedRecipe] = useState(undefined);
 
   useEffect(() => {
     getRecipes();
@@ -30,42 +31,61 @@ const App = () => {
     setQuery(search);
     setSearch('');
   };
+  const onRecipeSelect = (e, recipe) => {
+    console.log(recipe);
+    e.preventDefault();
+    setSelectedRecipe(recipe);
+  }
 
   return (
-    <div className="container">
-      <div className="container-card">
-        <div className="containerForm">
-          <form 
-                onSubmit={getSearch} 
-                className="search-form">
-            <input 
+    <>
+      <div className="container">
+        <div className="container-card">
+          <div className="containerForm">
+            <form
+              onSubmit={getSearch}
+              className="search-form">
+              <input
                 className="search-bar"
                 type="text"
                 value={search}
-                onChange={updateSearch} 
-                />
-            <button 
-            className="search-button"
-            type="submit">
-              Search
+                onChange={updateSearch}
+              />
+              <button
+                className="search-button"
+                type="submit">
+                Search
               </button>
-          </form>
-        
-        <div className="recipe-stuff">
-        {recipes.map(recipe => (
-          <Recipe
-            key={recipe.recipe.calories}
-            title={recipe.recipe.label}
-            calories={recipe.recipe.calories}
-            image={recipe.recipe.image}
-            ingredients={recipe.recipe.ingredients}
-          />
-        ))}
-        </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+      <div className="recipe-stuff">
+        <div id='leftPanel' className='left'>
+          {recipes.map(recipe => (
+            <RecipePreview
+              key={recipe.recipe.uri}
+              recipe={recipe}
+              onButtonClick={onRecipeSelect}
+            />
+          ))}
+        </div>
+        <div className='right'>
 
+          {
+            !!selectedRecipe &&
+            <Recipe
+              key={selectedRecipe.recipe.uri}
+              title={selectedRecipe.recipe.label}
+              calories={selectedRecipe.recipe.calories}
+              image={selectedRecipe.recipe.image}
+              ingredients={selectedRecipe.recipe.ingredients}
+              /> 
+          }
+
+        </div>
+      </div>
+    </>
   );
 };
 

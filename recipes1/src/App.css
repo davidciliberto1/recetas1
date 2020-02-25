@@ -7,8 +7,7 @@
 }
 
 .containerForm {
-  width
-  : 100%;
+  width: 100%;
 }
 .search-button {
   height: 36px;
@@ -24,6 +23,33 @@
   flex-direction: column;
 }
 .recipe-stuff {
+  
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  
+}
+.left {
+  align-items: left;
+  justify-content: space-around;
+  margin-top: 50px;
+  margin-left: 50px;
+  flex-grow:1;
+  
+}
+.Preview {
+  display: flex;
+  align-content: left;
+  justify-items: right;
+  margin:10px
+
+  
+
+}
+
+.Preview .imagen {
+  margin:3px
+}
+
+.right {
+  flex-grow:2;
 }

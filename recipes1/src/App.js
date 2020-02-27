@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Fragment } from 'react';
+import React, { useEffect, useState } from 'react';
 import Recipe from "./componentes/recipe";
 import RecipePreview from './componentes/recipePreview';
 import './App.css';
@@ -39,6 +39,7 @@ const App = () => {
 
   return (
     <>
+    <div className='all'>
       <div className="container">
         <div className="container-card">
           <div className="containerForm">
@@ -84,6 +85,7 @@ const App = () => {
           }
 
         </div>
+      </div>
       </div>
     </>
   );

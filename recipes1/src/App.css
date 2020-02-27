@@ -1,3 +1,6 @@
+.all {
+
+}
 .container {
   display: flex;
   justify-content: center;
@@ -51,6 +54,7 @@
 }
 
 .right {
+  background-color: rgb(124, 187, 221);
   flex-grow:2;
 }
 .button {
@@ -91,11 +95,21 @@
 .btn1::before {
   bottom: 0;
   
-  border-radius:  50% 50% 0 0;
   transition: 0.8s;
+  border-radius:  50% 50% 0 0;
 }
 .btn1:hover::before {
    height: 180%;
   transition: 0.8;
 
+}
+.card {
+  background-color: #3498db;
+  justify-content: center;
+}
+.imagen {
+  
+}
+.ingredientes {
+  background-color: #6dacd6;
 }
